@@ -1,8 +1,4 @@
-
-
-
-
-#讀檔案內容,去除\n
+# 讀檔案內容,去除\n
 def read_file(filename):
 	chat = []
 	with open(filename, 'r', encoding='UTF-8-sig') as f:
@@ -12,10 +8,10 @@ def read_file(filename):
 def check_chat(chat):
 	recheck = []
 	for i in chat:
-		if 'Allen' in i:
+		if i == 'Allen':
 			who = i
 			continue
-		elif 'Tom' in i:
+		elif i == 'Tom':
 			who = i
 			continue
 		recheck.append(who + ': ' + i + '\n')
