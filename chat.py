@@ -7,6 +7,7 @@ def read_file(filename):
 	return chat
 def check_chat(chat):
 	recheck = []
+	who = None
 	for i in chat:
 		if i == 'Allen':
 			who = i
@@ -14,7 +15,8 @@ def check_chat(chat):
 		elif i == 'Tom':
 			who = i
 			continue
-		recheck.append(who + ': ' + i + '\n')
+		if who: # None不執行
+			recheck.append(who + ': ' + i + '\n')
 	return recheck
 # 寫檔案
 def write_file(write, talking):
