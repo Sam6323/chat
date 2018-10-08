@@ -5,7 +5,7 @@
 #讀檔案內容,去除\n
 def read_file(filename):
 	chat = []
-	with open(filename, 'r', encoding='UTF-8') as f:
+	with open(filename, 'r', encoding='UTF-8-sig') as f:
 		for line in f:
 			chat.append(line.strip())
 	return chat
