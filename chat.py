@@ -1,14 +1,16 @@
 
-chat = []
-chat_check = []
+
+
 
 #讀檔案內容,去除\n
 def read_file(filename):
+	chat = []
 	with open(filename, 'r', encoding='UTF-8') as f:
 		for line in f:
 			chat.append(line.strip())
 	return chat
 def check_chat(chat):
+	recheck = []
 	for i in chat:
 		if 'Allen' in i:
 			who = i
@@ -16,20 +18,19 @@ def check_chat(chat):
 		elif 'Tom' in i:
 			who = i
 			continue
-		chat_check.append(who + ': ' + i + '\n')
-	return chat_check
+		recheck.append(who + ': ' + i + '\n')
+	return recheck
 # 寫檔案
-def write_file(write):
+def write_file(write, talking):
 	with open(write, 'w', encoding='UTF-8') as keyin:
-		for i in chat_check:
+		for i in talking:
 			keyin.write(i)
 # main
 def main():
 
 	filename = ('input.txt')
 	write = ('output_name.txt')
-	read_file(filename)
-	print(chat)
-	check_chat(chat)
-	write_file(write)
+	chat = read_file(filename)
+	chat = check_chat(chat)
+	write_file(write, chat)
 main()
